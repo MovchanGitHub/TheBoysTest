@@ -124,3 +124,6 @@ crashlytics-build.properties
 !/app/assets/builds/.keep
 
 /node_modules
+*.lock
+*.mdb
+*.mdb

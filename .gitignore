@@ -127,3 +127,4 @@ crashlytics-build.properties
 *.lock
 *.mdb
 *.mdb
+package-lock.json

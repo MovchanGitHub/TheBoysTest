@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="text-block"><%= button_to 'Sign Up', '/registration', method: :get, class: "button-92" %></div>
+  <%= form_tag('/final') do -%>
+
+    <div class='form-field'>
+      <%=label_tag 'major', 'major' %>
+      <%=text_field_tag 'answer[major]'%>
+    </div>
+    <div class='form-field'>
+      <%=label_tag 'minor', 'minor' %>
+      <%=text_field_tag 'answer[minor]'%>
+    </div>
+    <div class='form-field'>
+      <%=label_tag 'patch', 'patch' %>
+      <%=text_field_tag 'answer[patch]'%>
+    </div>
+    <div class='form-field'>
+      <%= submit_tag 'Отправить' %>
+    </div>
+  <% end -%>
+</div>

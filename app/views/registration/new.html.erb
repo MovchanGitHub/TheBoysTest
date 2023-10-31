@@ -27,30 +27,30 @@
 
   <div class="login-box">
     <h2>Login</h2>
-  <%= form_for :user, class: "user-box" do |f|-%>
+    <%= form_for :user do |f|-%>
 
       <div class="user-box">
-      <%= f.text_field 'email', class: 'user-box' %>
-      <%= f.label :email, "Email Address" %>
+      <%= f.text_field :email, required: "" %>
+        <label>Username</label>
       </div>
 
       <div class="user-box">
-      <%= f.password_field :password, class: "user-box" %> <br />
-      <%= f.label :password, "Password" %>
+      <%= f.password_field :password, required: "" %> <br />
+        <label>Password</label>
       </div>
 
       <div class="user-box">
-      <%= f.password_field :password_confirmation, class: "user-box" %> <br />
-      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.password_field :password_confirmation, required: "" %> <br />
+        <label>Confirm password</label>
       </div>
 
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
       <a>
-      <%= submit_tag 'Отправить' %>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <%= f.submit "Create account" %>
       </a>
-  <% end -%>
+    <% end -%>
   </div>
 </div>

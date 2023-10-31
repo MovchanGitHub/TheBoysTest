@@ -1,18 +1,37 @@
 <div class="container">
-  <div class="text-block"><%= button_to 'Sign Up', '/registration', method: :get, class: "button-92" %></div>
-  <%= form_tag('/final') do -%>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form>
+      <div class="user-box">
+        <input type="text" name="" required="">
+        <label>Username</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="" required="">
+        <label>Password</label>
+      </div>
+      <a href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </a>
+    </form>
+  </div>
+  <%= form_tag('/registration') do -%>
 
     <div class='form-field'>
-      <%=label_tag 'major', 'major' %>
-      <%=text_field_tag 'answer[major]'%>
+      <%=label_tag 'email', 'Your email' %>
+      <%=text_field_tag 'user[email]'%>
     </div>
     <div class='form-field'>
-      <%=label_tag 'minor', 'minor' %>
-      <%=text_field_tag 'answer[minor]'%>
+      <%=label_tag 'password', 'Your password' %>
+      <%=text_field_tag 'user[password]'%>
     </div>
     <div class='form-field'>
-      <%=label_tag 'patch', 'patch' %>
-      <%=text_field_tag 'answer[patch]'%>
+      <%=label_tag 'password confirm', 'Repeat your password' %>
+      <%=text_field_tag 'user[password_confirmation]'%>
     </div>
     <div class='form-field'>
       <%= submit_tag 'Отправить' %>

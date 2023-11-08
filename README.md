@@ -11,8 +11,6 @@ Dependencies:
 - PostgreSQL
 - Node.js
 
-## ONE PIECE IS REAL
-
 Fill credentials in `.env` file as:
 ```
 THE_BOYS_TEST_DATABASE_USERNAME=your_postgres-username

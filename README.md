@@ -33,3 +33,9 @@ Run the web server from IDE or from terminal with
 ```bash
 rails s
 ```
+
+```bash
+source ~/.zshrc
+```
+
+

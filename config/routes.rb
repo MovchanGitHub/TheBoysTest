@@ -12,13 +12,15 @@ Rails.application.routes.draw do
   delete '/auth', to: 'auth#delete'
 
   #---Site Navigation---
+  # TODO change to one route with key
   get '/search', to: 'search#by_genres'
   get '/search', to: 'search#by_creator'
+
   
   # Placeholder for possible future features of this site
   
   #---User Profile---
-  get '/profile', to: 'profile#view'
+  get '/profile', to: 'profile#view' # view -> show
   get '/edit_profile', to: 'profile#edit'
   post '/edit_profile', to: 'profile#save_changes'
   delete '/delete_profile', to: 'profile#delete'

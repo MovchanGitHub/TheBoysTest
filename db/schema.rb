@@ -24,12 +24,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_053447) do
     t.string "password_digest"
     t.integer "rating"
     t.integer "level"
-    t.bigint "subs_level_id_id"
+    t.bigint "subs_levels_id"
     t.string "photo_link"
     t.integer "tests_passed_today"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["subs_level_id_id"], name: "index_users_on_subs_level_id_id"
+    t.index ["subs_levels_id"], name: "index_users_on_subs_levels_id"
   end
 
 end

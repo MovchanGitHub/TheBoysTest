@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :password_digest
       t.integer :rating
       t.integer :level
-      t.references :subs_level_id
+      t.references :subs_levels
       t.string :photo_link
       t.integer :tests_passed_today
 

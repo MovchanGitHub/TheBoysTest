@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   get '/welcome', to: 'home#welcome'
 
   #---Registration and Authorization---
-  get '/registration', to: 'registration#new'
-  post '/registration', to: 'registration#create'
+  get '/registration', to: 'registration#new'          # get html to create a profile
+  post '/registration', to: 'registration#create'      # create a profile
 
-  get '/auth', to: 'auth#new'
-  post '/auth', to: 'auth#create'
+  get '/auth', to: 'auth#new'                          # get html to sign in
+  post '/auth', to: 'auth#create'                      # sign in
 
-  delete '/auth', to: 'auth#delete'
+  delete '/auth', to: 'auth#delete'                    # log out
 
   #---Site Navigation---
   # TODO change to one route with key
@@ -20,27 +20,27 @@ Rails.application.routes.draw do
   # Placeholder for possible future features of this site
   
   #---User Profile---
-  get '/profile', to: 'profile#view' # view -> show
-  get '/edit_profile', to: 'profile#edit'
-  post '/edit_profile', to: 'profile#save_changes'
-  delete '/delete_profile', to: 'profile#delete'
+  get '/profile/:id', to: 'profile#show'                  # show user profile
+  get '/profile/:id/edit', to: 'profile#edit'              # get html to edit user profile
+  patch '/profile/:id', to: 'profile#update'              # commit changes to user profile
+  delete '/profile/:id', to: 'profile#destroy'            # delete user profile
   
-  get '/user_test_list', to: 'profile#tests'
-  post '/publish_test', to: 'profile#publish_test'
-  delete '/delete_test', to: 'profile#delete_test'
+  get '/profile/:id/tests', to: 'profile#tests_show'          # show list of user tests
+  patch '/profile/:id/tests/:id', to: 'profile#test_publish'   # publish specific test (optional)
+  delete '/profile/:id/tests/:id', to: 'profile#test_delete'  # delete specific test
 
   # Placeholder for subscription buying routing
   
   #---Taking the test---
-  get '/test', to: 'test#view'
-  post '/test_code_word', to: 'test#check_code_word'
-  get '/test_start', to: 'test#start'
-  post '/test_finish', to: 'test#finish'
-  get '/test_results', to: 'test#results'
+  get '/tests/:id', to: 'test#show'                    # show test
+  put '/tests/:id/code_word', to: 'test#code_word'    # check test code word
+  get '/tests/:id/start', to: 'test#start'            # start the test
+  post '/tests/:id/finish', to: 'test#finish'          # finish the test
+  get '/tests/:id/results', to: 'test#results'        # show test results
   
   #---Creating the test---
-  get '/create_test', to: 'create_test#view'
-  post '/create_test', to: 'create_test#create'
+  get '/tests/new', to: 'tests#new'                # get html to create new test
+  post '/tests', to: 'tests#create'                # create new test
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

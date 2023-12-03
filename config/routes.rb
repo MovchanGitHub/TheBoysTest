@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/search', to: 'search#index'                    # not sure which route to use
   
   # Placeholder for possible future features of this site
+  get '/tests', to: 'tests#index'
   
   #---User Profile---
   get '/profile/:id', to: 'profile#show'                  # show user profile

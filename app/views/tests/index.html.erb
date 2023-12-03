@@ -2,14 +2,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-  <title>Список тестов</title>
+  <title>List of tests</title>
 </head>
 <body class="bg-gray-100 p-8">
   <div class="max-w-3xl mx-auto">
     <h1 class="text-3xl font-bold mb-4">List of tests</h1>
     
     <%= form_tag tests_path, method: :get, class: "mb-4 flex" do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Поиск по названию", class: "w-full rounded-l-md border-2 border-gray-300 focus:outline-none focus:border-indigo-500 p-2" %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search", class: "w-full rounded-l-md border-2 border-gray-300 focus:outline-none focus:border-indigo-500 p-2" %>
       <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-r-md">
         <svg class="h-6 w-6 fill-current text-gray-100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 11a4 4 0 1 0-5 3 4 4 0 0 0 5-3z"></path>

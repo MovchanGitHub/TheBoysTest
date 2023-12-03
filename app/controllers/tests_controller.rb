@@ -1,9 +1,9 @@
 class TestsController < ApplicationController
-    def index
-        if params[:search]
-          @tests = Test.where('name LIKE ?', "%#{params[:search]}%")
-        else
-          @tests = Test.all
-        end
+  def index
+    @tests = Test.all
+    if params[:search].present?
+      @tests = @tests.where('name LIKE ?', "%#{params[:search]}%")
     end
+    @tests = @tests.where(genre_id: params[:genre]) if params[:genre].present?
+  end
 end

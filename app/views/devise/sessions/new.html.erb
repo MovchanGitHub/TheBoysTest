@@ -14,18 +14,13 @@
   </div>
 
   <% if devise_mapping.rememberable? %>
-<!--    <div class="user-box">-->
         <h2><%= f.check_box :remember_me %>
       <%= f.label :remember_me %></h2>
-<!--    </div>-->
   <% end %>
-<!--      <div class="user-box">-->
       <h2><a>
     <%= f.submit "Log in" %><br />
       </a>
       </h2>
-
-<!--      </div>-->
 <% end %>
 
 <%= render "devise/shared/links" %>

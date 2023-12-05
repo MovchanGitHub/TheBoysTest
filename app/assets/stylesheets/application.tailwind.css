@@ -15,6 +15,12 @@
     background-color: #bef0ff;
 }
 
+.em-text{
+    color: #BBBBBB;
+    font-size: small;
+    break-after: auto;
+}
+
 .text-block{
     font-family: 'Lucida Sans',  Arial, sans-serif;
     font-size: 16px;

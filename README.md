@@ -48,8 +48,3 @@ Run the web server from IDE or from terminal with
 rails s
 ```
 
-```bash
-source ~/.zshrc
-```
-
-

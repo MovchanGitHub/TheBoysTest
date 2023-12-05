@@ -7,6 +7,19 @@
     align-items: center;
     justify-content: center;
 }
+.alert{
+    background-color: #e72222;
+}
+
+.notice{
+    background-color: #bef0ff;
+}
+
+.em-text{
+    color: #BBBBBB;
+    font-size: small;
+    break-after: auto;
+}
 
 .text-block{
     font-family: 'Lucida Sans',  Arial, sans-serif;
@@ -37,29 +50,29 @@
 .actual{
     padding: 10px;
 }
-                                                                             .button-64 {
-                                                                                 align-items: center;
-                                                                                 background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
-                                                                                 border: 0;
-                                                                                 border-radius: 8px;
-                                                                                 box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-                                                                                 box-sizing: border-box;
-                                                                                 color: #FFFFFF;
-                                                                                 display: flex;
-                                                                                 font-family: Phantomsans, sans-serif;
-                                                                                 font-size: 20px;
-                                                                                 justify-content: center;
-                                                                                 line-height: 1em;
-                                                                                 max-width: 100%;
-                                                                                 min-width: 140px;
-                                                                                 padding: 3px;
-                                                                                 text-decoration: none;
-                                                                                 user-select: none;
-                                                                                 -webkit-user-select: none;
-                                                                                 touch-action: manipulation;
-                                                                                 white-space: nowrap;
-                                                                                 cursor: pointer;
-                                                                             }
+.button-64 {
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
 
 .button-64:active,
 .button-64:hover {
@@ -85,25 +98,20 @@
         min-width: 196px;
     }
 }
-
-
-
-                                                       /* CSS */
-                                                   .button-92 {
-                                                       --c: #fff;
-                                                       /* text color */
-                                                       background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
-                                                       #004dff;
-                                                       /* background color */
-                                                       color: #0000;
-                                                       border: none;
-                                                       transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
-                                                       text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
-                                                       calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
-                                                       outline-offset: .1em;
-                                                       transition: 0.3s;
-                                                   }
-
+.button-92 {
+    --c: #fff;
+    /* text color */
+    background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
+    #004dff;
+    /* background color */
+    color: #0000;
+    border: none;
+    transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+    text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
+    calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+    outline-offset: .1em;
+    transition: 0.3s;
+}
 .button-92:hover,
 .button-92:focus-visible {
     --_p: 0%;

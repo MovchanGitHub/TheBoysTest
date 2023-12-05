@@ -7,7 +7,10 @@
   <p class="text-block">
   <div class="user-box" align="center"><%= button_to 'Welcome to the City 17', '/welcome', method: :get, class: "button-92" %></div>
   <h2> </h2>
-  <div class="user-box" align="center"><%= button_to 'Sign up', '/registration', method: :get, class: "button-92" %></div>
-  </div>
+    <% unless user_signed_in? %>
+    <div class="user-box" align="center"><%=  button_to 'Login', '/users/sign_in', method: :get, class: "button-92"  %></div>
+    <%  end %>
+
+      </div>
 </div>
 

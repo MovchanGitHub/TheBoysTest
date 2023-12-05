@@ -47,5 +47,11 @@ class DeviseCreateDeviseUsers < ActiveRecord::Migration[7.1]
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
     add_index :users, :unlock_token,         unique: true
+
+    create_table :admins do |t|
+      t.string :email
+      t.string :encrypted_password
+      t.timestamps null: false
+    end
   end
 end

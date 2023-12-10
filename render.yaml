@@ -1,0 +1,18 @@
+databases:
+  - name: the_boys_test_db
+    databaseName: the_boys_test_db
+    user: the_boys_test_db
+
+services:
+  - type: web
+    name: the-boys-test
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: the_boys_test_db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

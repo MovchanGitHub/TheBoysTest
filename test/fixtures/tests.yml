@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code_word: MyString
+  owner_id: 1
+  name: MyString
+  access_type_id: MyString
+  rating: 1
+  description: MyString
+  options_id: 1
+  genre_id: 1
+  approved: false
+
+two:
+  code_word: MyString
+  owner_id: 1
+  name: MyString
+  access_type_id: MyString
+  rating: 1
+  description: MyString
+  options_id: 1
+  genre_id: 1
+  approved: false

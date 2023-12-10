@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Subs_Level < ApplicationRecord
+class SubsLevel < ApplicationRecord
   belongs_to :user
 end

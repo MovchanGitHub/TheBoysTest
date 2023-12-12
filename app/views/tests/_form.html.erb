@@ -1,0 +1,16 @@
+<%= form_with(model: test, local: true) do |form| %>
+  <!-- Добавьте поля формы для создания теста -->
+  <%= form.text_field :name, placeholder: 'Test Name', class: 'mb-4' %>
+  <%= form.text_field :code_word, placeholder: 'Access Code', class: 'mb-4' %>
+  <%= form.text_area :description, placeholder: 'Description', class: 'mb-4' %>
+  <%= form.collection_select :genre_id, Genre.all, :id, :name, prompt: 'Select Genre', class: 'mb-4' %>
+
+  <%= form.fields_for :questions do |question_form| %>
+    <%= question_form.text_field :content, placeholder: 'Question', class: 'mb-2' %>
+    <%= question_form.text_field :answer1, placeholder: 'Answer 1', class: 'mb-2' %>
+    <%= question_form.text_field :answer2, placeholder: 'Answer 2', class: 'mb-2' %>
+    <!-- Добавьте другие поля для ответов по мере необходимости -->
+  <% end %>
+
+  <%= form.submit 'Create Test', class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md' %>
+<% end %>

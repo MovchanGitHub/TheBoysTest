@@ -33,26 +33,11 @@
     const questionsContainer = document.getElementById('questions-container');
     const addQuestionButton = document.getElementById('add-question');
 
-    addQuestionButton.addEventListener('click', function () {
-      const questionIndex = new Date().getTime();
-      const questionFields = `
-        <div class="mb-4" id="question-${questionIndex}">
-          <label class="block text-sm font-medium text-white mb-1">Question</label>
-          <div class="flex items-center mb-2">
-            <input type="text" name="test[questions_attributes][${questionIndex}][content]" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
-            <button type="button" class="bg-red-500 text-white py-1 px-2 rounded-md ml-2" onclick="removeQuestion(${questionIndex})">×</button>
-          </div>
-          
-          <label class="block text-sm font-medium text-white mb-1">Answers</label>
-          <div class="mb-2" id="answers-${questionIndex}">
-            <!-- Динамически добавленные поля ответов будут здесь -->
-          </div>
-          
-          <button type="button" class="bg-blue-500 text-white py-2 px-4 rounded-md mb-2" onclick="addAnswer(${questionIndex})">Add Answer</button>
-        </div>
-      `;
+    // Добавление первого вопроса при загрузке страницы
+    addInitialQuestion();
 
-      questionsContainer.insertAdjacentHTML('beforeend', questionFields);
+    addQuestionButton.addEventListener('click', function () {
+      addQuestion();
     });
 
     window.removeQuestion = function (index) {
@@ -83,5 +68,62 @@
         answerElement.parentNode.remove();
       }
     };
+
+    // Функция для добавления первого вопроса при загрузке страницы
+    function addInitialQuestion() {
+      const questionIndex = new Date().getTime();
+      const questionFields = `
+        <div class="mb-4" id="question-${questionIndex}">
+          <label class="block text-sm font-medium text-white mb-1">Question</label>
+          <div class="flex items-center mb-2">
+            <input type="text" name="test[questions_attributes][${questionIndex}][content]" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
+          </div>
+          
+          <label class="block text-sm font-medium text-white mb-1">Answers</label>
+          <div class="mb-2" id="answers-${questionIndex}">
+            <!-- Динамически добавленные поля ответов будут здесь -->
+            <div class="flex items-center mb-2">
+              <input type="text" name="test[questions_attributes][${questionIndex}][answers_attributes][0][content]" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
+            </div>
+            <div class="flex items-center mb-2">
+              <input type="text" name="test[questions_attributes][${questionIndex}][answers_attributes][1][content]" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
+            </div>
+          </div>
+          
+          <button type="button" class="bg-blue-500 text-white py-2 px-4 rounded-md mb-2" onclick="addAnswer(${questionIndex})">Add Answer</button>
+        </div>
+      `;
+
+      questionsContainer.insertAdjacentHTML('beforeend', questionFields);
+    }
+
+    // Функция для добавления нового вопроса
+    function addQuestion() {
+      const questionIndex = new Date().getTime();
+      const questionFields = `
+        <div class="mb-4" id="question-${questionIndex}">
+          <label class="block text-sm font-medium text-white mb-1">Question</label>
+          <div class="flex items-center mb-2">
+            <input type="text" name="test[questions_attributes][${questionIndex}][content]" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
+            <button type="button" class="bg-red-500 text-white py-1 px-2 rounded-md ml-2" onclick="removeQuestion(${questionIndex})">×</button>
+          </div>
+          
+          <label class="block text-sm font-medium text-white mb-1">Answers</label>
+          <div class="mb-2" id="answers-${questionIndex}">
+            <!-- Динамически добавленные поля ответов будут здесь -->
+            <div class="flex items-center mb-2">
+              <input type="text" name="test[questions_attributes][${questionIndex}][answers_attributes][0][content]" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
+            </div>
+            <div class="flex items-center mb-2">
+              <input type="text" name="test[questions_attributes][${questionIndex}][answers_attributes][1][content]" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
+            </div>
+          </div>
+          
+          <button type="button" class="bg-blue-500 text-white py-2 px-4 rounded-md mb-2" onclick="addAnswer(${questionIndex})">Add Answer</button>
+        </div>
+      `;
+
+      questionsContainer.insertAdjacentHTML('beforeend', questionFields);
+    }
   });
 </script>

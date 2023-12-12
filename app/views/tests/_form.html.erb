@@ -36,15 +36,15 @@
     addQuestionButton.addEventListener('click', function () {
       const questionIndex = new Date().getTime();
       const questionFields = `
-        <div class="mb-2">
-          <label for="test_questions_attributes_${questionIndex}_content" class = "text-white">Question</label>
-          <input type="text" name="test[questions_attributes][${questionIndex}][content]" id="test_questions_attributes_${questionIndex}_content" class="mb-2">
+        <div class="mb-4">
+          <label for="test_questions_attributes_${questionIndex}_content" class="block text-sm font-medium text-white mb-1">Question</label>
+          <input type="text" name="test[questions_attributes][${questionIndex}][content]" id="test_questions_attributes_${questionIndex}_content" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
           
-          <label for="test_questions_attributes_${questionIndex}_answer1" class = "text-white">Answer 1</label>
-          <input type="text" name="test[questions_attributes][${questionIndex}][answer1]" id="test_questions_attributes_${questionIndex}_answer1" class="mb-2">
+          <label for="test_questions_attributes_${questionIndex}_answer1" class="block text-sm font-medium text-white mb-1">Answer 1</label>
+          <input type="text" name="test[questions_attributes][${questionIndex}][answer1]" id="test_questions_attributes_${questionIndex}_answer1" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
           
-          <label for="test_questions_attributes_${questionIndex}_answer2" class = "text-white">Answer 2</label>
-          <input type="text" name="test[questions_attributes][${questionIndex}][answer2]" id="test_questions_attributes_${questionIndex}_answer2" class="mb-2">
+          <label for="test_questions_attributes_${questionIndex}_answer2" class="block text-sm font-medium text-white mb-1">Answer 2</label>
+          <input type="text" name="test[questions_attributes][${questionIndex}][answer2]" id="test_questions_attributes_${questionIndex}_answer2" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
         </div>
       `;
 

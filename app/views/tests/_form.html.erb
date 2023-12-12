@@ -1,16 +1,43 @@
-<%= form_with(model: test, local: true) do |form| %>
-  <!-- Добавьте поля формы для создания теста -->
-  <%= form.text_field :name, placeholder: 'Test Name', class: 'mb-4' %>
-  <%= form.text_field :code_word, placeholder: 'Access Code', class: 'mb-4' %>
-  <%= form.text_area :description, placeholder: 'Description', class: 'mb-4' %>
-  <%= form.collection_select :genre_id, Genre.all, :id, :name, prompt: 'Select Genre', class: 'mb-4' %>
+<%= form_with(model: test, local: true, class: 'w-full max-w-md mx-auto p-6 bg-white rounded-md shadow-md') do |form| %>
+  <div class="mb-4">
+    <%= form.label :name, class: 'block text-sm font-medium text-white' %>
+    <%= form.text_field :name, placeholder: 'Test Name', class: 'form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :code_word, class: 'block text-sm font-medium text-white' %>
+    <%= form.text_field :code_word, placeholder: 'Access Code', class: 'form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :description, class: 'block text-sm font-medium text-white' %>
+    <%= form.text_area :description, placeholder: 'Description', class: 'form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :genre_id, class: 'block text-sm font-medium text-white' %>
+    <%= form.collection_select :genre_id, Genre.all, :id, :name, { prompt: 'Select Genre' }, class: 'form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+  </div>
 
   <%= form.fields_for :questions do |question_form| %>
-    <%= question_form.text_field :content, placeholder: 'Question', class: 'mb-2' %>
-    <%= question_form.text_field :answer1, placeholder: 'Answer 1', class: 'mb-2' %>
-    <%= question_form.text_field :answer2, placeholder: 'Answer 2', class: 'mb-2' %>
-    <!-- Добавьте другие поля для ответов по мере необходимости -->
+    <div class="mb-4">
+      <%= question_form.label :content, class: 'block text-sm font-medium text-white' %>
+      <%= question_form.text_field :content, placeholder: 'Question', class: 'form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+    </div>
+
+    <div class="mb-4">
+      <%= question_form.label :answer1, class: 'block text-sm font-medium text-white' %>
+      <%= question_form.text_field :answer1, placeholder: 'Answer 1', class: 'form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+    </div>
+
+    <div class="mb-4">
+      <%= question_form.label :answer2, class: 'block text-sm font-medium text-white' %>
+      <%= question_form.text_field :answer2, placeholder: 'Answer 2', class: 'form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+    </div>
+    <!-- Можно добавить другие поля для ответов по мере необходимости -->
   <% end %>
 
-  <%= form.submit 'Create Test', class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md' %>
+  <div class="mt-4">
+    <%= form.submit 'Create Test', class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md' %>
+  </div>
 <% end %>

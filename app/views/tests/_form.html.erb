@@ -19,11 +19,11 @@
     <%= form.collection_select :genre_id, Genre.all, :id, :name, { prompt: 'Select Genre' }, class: 'form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
   </div>
 
-  <div id="questions-container">
+ <div id="questions-container">
     <!-- Вопросы и ответы будут добавлены здесь динамически через JavaScript -->
   </div>
 
-  <button type="button" id="add-question" class="bg-blue-500 text-white py-2 px-4 rounded-md">Add Question</button>
+  <button type="button" id="add-question" class="bg-blue-500 text-white py-2 px-4 rounded-md mb-4">Add Question</button>
 
   <%= form.submit 'Create Test', class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md' %>
 <% end %>
@@ -36,19 +36,29 @@
     addQuestionButton.addEventListener('click', function () {
       const questionIndex = new Date().getTime();
       const questionFields = `
-        <div class="mb-4">
-          <label for="test_questions_attributes_${questionIndex}_content" class="block text-sm font-medium text-white mb-1">Question</label>
-          <input type="text" name="test[questions_attributes][${questionIndex}][content]" id="test_questions_attributes_${questionIndex}_content" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
+        <div class="mb-4" id="question-${questionIndex}">
+          <label class="block text-sm font-medium text-white mb-1">Question</label>
+          <div class="flex items-center mb-2">
+            <input type="text" name="test[questions_attributes][${questionIndex}][content]" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
+            <button type="button" class="bg-red-500 text-white py-1 px-2 rounded-md ml-2" onclick="removeQuestion(${questionIndex})">×</button>
+          </div>
           
-          <label for="test_questions_attributes_${questionIndex}_answer1" class="block text-sm font-medium text-white mb-1">Answer 1</label>
-          <input type="text" name="test[questions_attributes][${questionIndex}][answer1]" id="test_questions_attributes_${questionIndex}_answer1" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
+          <label class="block text-sm font-medium text-white mb-1">Answer 1</label>
+          <input type="text" name="test[questions_attributes][${questionIndex}][answer1]" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
           
-          <label for="test_questions_attributes_${questionIndex}_answer2" class="block text-sm font-medium text-white mb-1">Answer 2</label>
-          <input type="text" name="test[questions_attributes][${questionIndex}][answer2]" id="test_questions_attributes_${questionIndex}_answer2" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
+          <label class="block text-sm font-medium text-white mb-1">Answer 2</label>
+          <input type="text" name="test[questions_attributes][${questionIndex}][answer2]" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 mb-2">
         </div>
       `;
 
       questionsContainer.insertAdjacentHTML('beforeend', questionFields);
     });
+
+    window.removeQuestion = function (index) {
+      const questionElement = document.getElementById(`question-${index}`);
+      if (questionElement) {
+        questionElement.remove();
+      }
+    };
   });
 </script>

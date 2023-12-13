@@ -13,9 +13,15 @@
   <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+      <div class="logo-box">
+    <%= link_to(image_tag("logo.png", alt: "Главная"), root_path, class: "logo-img") %>
+      </div>
   <% if user_signed_in? %>
-    <div class="user-box" align="right"><%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: "button-92" %></div>
+    <div class="user-box" align="right">
+      <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: "button-92" %>
+    </div>
   <% end %>
+
   <%= yield %>
   </body>
 </html>

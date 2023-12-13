@@ -16,11 +16,15 @@
       <div class="logo-box">
     <%= link_to(image_tag("logo.png", alt: "Главная"), root_path, class: "logo-img") %>
       </div>
+    <div class="sign-box">
   <% if user_signed_in? %>
-    <div class="user-box" align="right">
-      <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: "button-92" %>
-    </div>
+      <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+        <%= link_to("#{current_user.email}", root_path) %>
+      <% else %>
+      <%= button_to 'Log in', user_session_path, method: :get %>
+
   <% end %>
+      </div>
 
   <%= yield %>
   </body>

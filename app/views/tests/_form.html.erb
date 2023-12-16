@@ -18,7 +18,9 @@
     <label for="genre_id" class="block text-sm font-medium text-white">Genre</label>
     <select id="genre_id" name="test[genre_id]" class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
       <option value="" selected disabled>Choose genre</option>
-      <!-- Опции для жанров будут добавлены динамически из базы данных -->
+      <% @genres.each do |genre| %>
+        <option value="<%= genre.id %>"><%= genre.name %></option>
+      <% end %>
     </select>
   </div>
 

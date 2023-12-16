@@ -1,32 +1,36 @@
-<%= form_with(model: test, local: true, class: 'w-full max-w-md mx-auto p-6 bg-white rounded-md shadow-md') do |form| %>
-  <div class="mb-4" style = "margin-left: 10px">
-    <%= form.label :name, class: 'block text-sm font-medium text-white' %>
-    <%= form.text_field :name, placeholder: 'Test Name', class: 'form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+<form action="/tests" method="post" class="w-full max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
+  <div class="mb-4" style="margin-left: 10px">
+    <label for="test_name" class="block text-sm font-medium text-white">Name</label>
+    <input type="text" id="test_name" name="test[name]" placeholder="Name" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5">
   </div>
 
-  <div class="mb-4" style = "margin-left: 10px">
-    <%= form.label :code_word, class: 'block text-sm font-medium text-white' %>
-    <%= form.text_field :code_word, placeholder: 'Access Code', class: 'form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+  <div class="mb-4" style="margin-left: 10px">
+    <label for="code_word" class="block text-sm font-medium text-white">Password</label>
+    <input type="text" id="code_word" name="test[code_word]" placeholder="Password" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5">
   </div>
 
-  <div class="mb-4" style = "margin-left: 10px">
-    <%= form.label :description, class: 'block text-sm font-medium text-white' %>
-    <%= form.text_area :description, placeholder: 'Description', class: 'form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+  <div class="mb-4" style="margin-left: 10px">
+    <label for="description" class="block text-sm font-medium text-white">Description</label>
+    <textarea id="description" name="test[description]" placeholder="Description" class="form-input mt-1 block w-full rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
   </div>
 
-  <div class="mb-4" style = "margin-left: 10px">
-    <%= form.label :genre_id, class: 'block text-sm font-medium text-white' %>
-    <%= form.collection_select :genre_id, Genre.all, :id, :name, { prompt: 'Select Genre' }, class: 'form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+  <div class="mb-4" style="margin-left: 10px">
+    <label for="genre_id" class="block text-sm font-medium text-white">Genre</label>
+    <select id="genre_id" name="test[genre_id]" class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+      <option value="" selected disabled>Choose genre</option>
+      <!-- Опции для жанров будут добавлены динамически из базы данных -->
+    </select>
   </div>
 
- <div id="questions-container">
+  <div id="questions-container">
     <!-- Вопросы и ответы будут добавлены здесь динамически через JavaScript -->
   </div>
 
   <button type="button" id="add-question" class="bg-blue-500 text-white py-2 px-4 rounded-md mb-4">Add Question</button>
 
-  <%= form.submit 'Create Test', class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md' %>
-<% end %>
+  <!-- Кнопка создания теста и записи в базу данных -->
+  <input type="submit" value="Create Test" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md">
+</form>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {

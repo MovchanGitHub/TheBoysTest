@@ -13,12 +13,6 @@ class TestsController < ApplicationController
   end
 
   def create
-    #test_params = Hash.new
-    #test_params[:name] = params.require(:name)
-    #test_params[:code_word] = params.require(:code_word)
-    #test_params[:description] = params.require(:description)
-    #test_params[:genre_id] = params.require(:genre_id)
-
     Test.create(test_params)
     flash[:notice] = 'Test was successfully created.'
     redirect_to '/tests'

@@ -2,7 +2,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-  <title>List of tests</title>
+  <title style="color:white;">List of tests</title>
 </head>
 <body class="bg-gray-100 p-8">
   <div class="max-w-3xl mx-auto">
@@ -33,7 +33,10 @@
       <% end %>
     </ul>
   </div>
+
+  <% if user_signed_in? %>
   <button type="button" onclick="location.href='<%= new_test_path %>'" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md">
-  Create Test
-</button>
+    Create Test
+  </button>
+  <% end %>
 </body>

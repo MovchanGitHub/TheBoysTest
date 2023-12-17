@@ -2,7 +2,9 @@
 <html>
   <head>
     <title>TheBoysTest</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,12 +12,22 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="bg-gray-100 p-8">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+      <div class="logo-box">
+    <%= link_to(image_tag("logo.png", alt: "Logo"), root_path, class: "logo-img") %>
+      </div>
+    <div class="sign-box">
   <% if user_signed_in? %>
-    <div class="user-box" align="right"><%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: "button-92" %></div>
+      <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+        <%= link_to("#{current_user.email}", root_path) %>
+      <% else %>
+      <%= button_to 'Log in', user_session_path, method: :get %>
+
   <% end %>
+      </div>
+
   <%= yield %>
   </body>
 </html>

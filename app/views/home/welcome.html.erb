@@ -2,6 +2,9 @@
 <div class="login-box">
   <h2>Main Page</h2>
   <p class="text-block">
-  <div class="user-box" align="center"><%= button_to 'Tests', '/tests', method: :get, class: "button-92" %></div>
+  <div class="user-box"><%= button_to 'Search for test', '/tests', method: :get, class: "button-92" %></div>
+    <% if user_signed_in? %>
+    <div class="user-box"><%= button_to 'Create test', new_test_path, method: :get, class: "button-92" %></div>
+    <% end %>
   </div>
 </div>

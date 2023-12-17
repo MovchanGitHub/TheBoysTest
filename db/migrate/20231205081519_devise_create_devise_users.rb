@@ -2,7 +2,7 @@
 
 class DeviseCreateDeviseUsers < ActiveRecord::Migration[7.1]
   def change
-    drop_table :users
+    create_table :subs_levels, &:timestamps
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -52,6 +52,25 @@ class DeviseCreateDeviseUsers < ActiveRecord::Migration[7.1]
       t.string :email
       t.string :encrypted_password
       t.timestamps null: false
+    end
+
+    create_table :tests do |t|
+      t.string :code_word
+      t.integer :owner_id
+      t.string :name
+      t.string :access_type_id
+      t.integer :rating
+      t.string :description
+      t.integer :options_id
+      t.integer :genre_id
+      t.boolean :approved
+
+      t.timestamps
+    end
+
+    create_table :genres do |t|
+      t.string :name
+      t.timestamps
     end
   end
 end

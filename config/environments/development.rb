@@ -73,5 +73,16 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
-  config.action_mailer.default_url_options = { host: 'the-boys-test.onrender.com', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.mail.ru',
+    port:                 465,
+    domain:               'mail.ru',
+    user_name:            MAIL_NAME,
+    password:             MAIL_KEY,
+    authentication:       'plain',
+    ssl:                  true,
+    tls:                  true
+  }
 end

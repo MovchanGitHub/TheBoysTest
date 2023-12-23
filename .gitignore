@@ -129,3 +129,4 @@ crashlytics-build.properties
 *.mdb
 package-lock.json
 .parcel-cache/*
+.env

@@ -10,6 +10,11 @@
 .alert{
     background-color: #e72222;
 }
+
+.form-alert{
+    color: #e72222;
+
+}
 .notice{
     background-color: #bef0ff;
 }

@@ -82,8 +82,8 @@ Rails.application.configure do
     address:              'smtp.mail.ru',
     port:                 465,
     domain:               'mail.ru',
-    user_name:            MAIL_NAME,
-    password:             MAIL_KEY,
+    user_name:            ENV['MAIL_NAME'],
+    password:             ENV['MAIL_KEY'],
     authentication:       'plain',
     ssl:                  true,
     tls:                  true

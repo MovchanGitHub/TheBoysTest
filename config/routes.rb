@@ -16,10 +16,7 @@ Rails.application.routes.draw do
   # delete '/auth', to: 'auth#delete'                    # log out
 
   #---Site Navigation---
-  # TODO change to one route with key. Kind of done.
-  get '/search', to: 'search#index'                    # not sure which route to use
-
-  # Placeholder for possible future features of this site
+  get '/search', to: 'search#index'
   get '/tests', to: 'tests#index'
 
   #---User Profile---

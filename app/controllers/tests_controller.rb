@@ -1,14 +1,18 @@
 class TestsController < ApplicationController
   def index
     @tests = Test.all
-    if params[:search].present?
+  
+    if params[:search].present? && params[:tag].present?
+      @tests = Test.tagged_with(params[:tag]).where('name LIKE ?', "%#{params[:search]}%")
+    elsif params[:tag].present?
+      @tests = Test.tagged_with(params[:tag])
+    elsif params[:search].present?
       @tests = @tests.where('name LIKE ?', "%#{params[:search]}%")
     end
-    @tests = @tests.where(genre_id: params[:genre]) if params[:genre].present?
   end
 
   def new
-    @genres = Genre.all
+    @tag = Tag.all
     @test = Test.new
   end
 
@@ -20,5 +24,5 @@ class TestsController < ApplicationController
 end
 
 def test_params
-  params.require(:test).permit(:name, :code_word, :description, :genre_id)
+  params.require(:test).permit(:name, :code_word, :description)
 end
